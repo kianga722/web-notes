@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "5f833668c93d3e2c8bd3443b",
+    "index": 0,
+    "guid": "0d4626c2-d4fd-4eee-b055-41bc1ae1921b",
+    "isActive": false,
+    "balance": "$3,657.95",
+    "picture": "http://placehold.it/32x32",
+    "age": 37,
+    "eyeColor": "blue",
+    "name": "Sonja Holland",
+    "gender": "female",
+    "company": "MICRONAUT",
+    "email": "sonjaholland@micronaut.com",
+    "phone": "+1 (965) 533-3843"
+  },
+  {
+    "_id": "5f8336686770e5c041203098",
+    "index": 1,
+    "guid": "f878d617-b2d7-4e49-a106-aba75398b552",
+    "isActive": false,
+    "balance": "$1,421.06",
+    "picture": "http://placehold.it/32x32",
+    "age": 34,
+    "eyeColor": "brown",
+    "name": "Irwin Branch",
+    "gender": "male",
+    "company": "LUDAK",
+    "email": "irwinbranch@ludak.com",
+    "phone": "+1 (971) 518-2262"
+  },
+  {
+    "_id": "5f833668fea9c2ba20a901e4",
+    "index": 2,
+    "guid": "191a1ff4-aee9-4e44-914b-3033b5c9cab2",
+    "isActive": false,
+    "balance": "$1,728.78",
+    "picture": "http://placehold.it/32x32",
+    "age": 22,
+    "eyeColor": "blue",
+    "name": "Mullen Daniel",
+    "gender": "male",
+    "company": "FLUMBO",
+    "email": "mullendaniel@flumbo.com",
+    "phone": "+1 (935) 473-2771"
+  }
+]

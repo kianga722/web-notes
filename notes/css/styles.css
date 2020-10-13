@@ -1,0 +1,262 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* Custom Styling */
+body {
+	background: #f9f9f9;
+}
+
+#main {
+	margin: 30px auto;
+	max-width: 1000px;
+	font-size: 20px;
+}
+
+b {
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 36px;
+	font-weight: 700;
+	text-align: center;
+}
+h1:hover {
+	text-decoration: underline;
+}
+h2 {
+	color: #d71274;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+h3,
+h4 {
+	margin-top: 36px;
+	margin-left: 20px;
+	color: red;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+header {
+	color: #423b95;
+	font-size: 48px;
+	font-weight: 700;
+	text-align: center;
+}
+
+nav {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+nav h1 {
+	color: #1f5315;
+}
+nav ul {
+	margin-top: 10px;
+	text-align: center;
+}
+nav ul li {
+	margin-top: 10px;
+}
+nav a {
+	font-size: 20px;
+	font-weight: 700;
+	text-decoration: none;
+}
+nav a:hover {
+	color: red;
+}
+
+main {
+	margin: 80px 20px 200px;
+}
+main > article {
+	margin-top: 80px;
+}
+main > article section {
+	margin-top: 60px;
+}
+
+.example-divider {
+	margin-top: 15px;
+}
+
+main > article section p {
+	margin-top: 20px;
+	margin-left: 20px;
+	line-height: 1.5;
+}
+
+#definitions-origin .origin-components {
+	margin-top: 10px;
+	margin-left: 69px;
+}
+#definitions-origin .origin-components li {
+	margin-top: 5px;
+}
+#definitions-origin .scheme {
+	color: #a46b03;
+}
+#definitions-origin .host {
+	color:#0d10c4;
+}
+#definitions-origin .port {
+	color:#ff00a7;
+}
+#definitions-origin .example li {
+	margin-top: 20px;
+	margin-left: 20px;
+	font-weight: 700;
+}
+
+#cookies > p {
+	margin-top: 20px;
+}
+#cookies > p:nth-of-type(1) {
+	margin-top: 60px;
+}
+#cookies h3,
+#cookies .samesite {
+	color: #8c2525;
+	font-weight: 700;
+}
+#cookies h4 {
+	color: red;
+}
+#cookies .example-title {
+	color: red;
+}
+#cookies h4.example {
+	color: black;
+	line-height: 1.5;
+}
+#cookies #domain-path ul {
+	margin-left: 20px;
+}
+#cookies #domain-path ul li {
+	margin-top: 20px;
+	margin-left: 30px;
+}
+#cookies .samesite-wrapper {
+	margin-left: 40px;
+}
+
+article.demo {
+	margin-top: 20px;
+	margin-left: 40px;
+}
+article.demo p {
+	margin-left: 0;
+}
+article.demo ol li {
+	margin-top: 15px;
+	line-height: 1.5;
+}
+
+.code-snippet {
+	margin-top: 10px;
+	margin-left: 20px;
+	background: #dfdfdf;
+	font-size: 18px;
+	line-height: 1.5;
+	word-break: break-word;
+}
+
+#sop h3,
+#cors h3 {
+	color: #8c2525;
+	font-weight: 700;
+}
+#sop > ul,
+#cors > ul {
+	margin-left: 20px;
+}
+#sop > ul li,
+#cors > ul li {
+	margin-top: 20px;
+}
+#sop .sop-relax {
+	color: black;
+	line-height: 1.5;
+}
+#cors > ul {
+	margin-left: 60px;
+}
+#cors h5.example,
+#csp h4.example {
+	margin-top: 20px;
+	margin-left: 20px;
+	color: black;
+	line-height: 1.5;
+	font-weight: 700;
+}
+#cors .preflight-headers {
+	margin-left: 40px;
+}
+
+button {
+	display: block;
+	padding: 20px 40px;
+	border: 2px solid #191993;
+	color: #191993;
+	background: transparent;
+	font-size: 18px;
+	font-weight: 700;
+	cursor: pointer;
+}
+button:hover {
+	color: white;
+	background: black;
+}

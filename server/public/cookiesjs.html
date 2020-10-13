@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Cookies</title>
+    </head>
+
+    <body>
+        <header>Cookies available through JavaScript document.cookie</header>
+
+        <div id='cookie-wrapper'></div>
+        
+        <script type="text/javascript">
+            const cookieWrapper = document.querySelector('#cookie-wrapper');
+            cookieWrapper.textContent = document.cookie;
+        </script>
+    </body>
+
+</html>

