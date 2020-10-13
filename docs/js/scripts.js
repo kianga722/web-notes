@@ -1,5 +1,7 @@
 (() => {
-    const otherSite = 'sdf';
+    const otherSiteNoCORS = 'https://server-nocors.herokuapp.com';
+    const otherSiteCORS = 'https://server-nocors.herokuapp.com';
+    const otherSiteRestrict = 'https://server-nocors.herokuapp.com';
 
     const fetchSameOrigin = document.querySelector('#fetch-same-origin');
     const fetchDifferentOrigin = document.querySelector('#fetch-different-origin');
@@ -53,24 +55,24 @@
         handleFetch('/data/data.json', dataWrapperSame)
     })
     fetchDifferentOrigin.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperDifferent)
+        handleFetch(`${otherSiteNoCORS}/data.json`, dataWrapperDifferent)
     })
     fetchCORS.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperCORS)
+        handleFetch(`${otherSiteCORS}/data.json`, dataWrapperCORS)
     })
     fetchRestrict.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperRestrict)
+        handleFetch(`${otherSiteRestrict}/data.json`, dataWrapperRestrict)
     })
     fetchPreflight.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperPreflight, 'application/json')
+        handleFetch(`${otherSiteCORS}/data.json`, dataWrapperPreflight, 'application/json')
     })
     fetchJSON.addEventListener('click', () => {
-        handleFetch(`${otherSite}/getJSON`, dataWrapperJSON)
+        handleFetch(`${otherSiteNoCORS}/getJSON`, dataWrapperJSON)
     })
     JSONPnosupport.addEventListener('click', () => {
-        handleJSONP(`${otherSite}/getJSON`, dataWrapperJSONPnosupport)
+        handleJSONP(`${otherSiteNoCORS}/getJSON`, dataWrapperJSONPnosupport)
     })
     JSONPsupport.addEventListener('click', () => {
-        handleJSONP(`${otherSite}/getJSONP`, dataWrapperJSONPsupport)
+        handleJSONP(`${otherSiteNoCORS}/getJSONP`, dataWrapperJSONPsupport)
     })
 })()

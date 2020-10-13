@@ -335,10 +335,10 @@
                         <article class='demo'>
                             <ol>
                                 <li><span>&#x279F;</span>
-                                    Go to this <a href='https://f8fe62e626a0.ngrok.io/setCookieStrict' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=Strict</b> cookie
+                                    Go to this <a href='https://server-nocors.herokuapp.com/setCookieStrict' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=Strict</b> cookie
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <a href='https://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from the same website and see that the cookie is <b>NOT sent</b> in the header
+                                    Follow this <a href='https://server-nocors.herokuapp.com/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from the same website and see that the cookie is <b>NOT sent</b> in the header
                                 </li>
                                 <li><span>&#x279F;</span>
                                     In the <b>new tab</b> you just opened, go to the <b>URL bar</b> and hit enter to see that the cookie <b>IS</b> now sent in a <b>first party context</b> (navigating within the same domain)
@@ -351,7 +351,7 @@
                         <article class='demo'>
                             <p>Picture of <b>dog</b> below:</p>
                             <picture>
-                                <img src='https://be7b99a55e76.ngrok.io/dog.jpeg' alt='dog'>
+                                <img src='https://server-nocors.herokuapp.com/dog.jpeg' alt='dog'>
                             </picture>
                             <ol>
                                 <li><span>&#x279F;</span>
@@ -365,10 +365,10 @@
                         <article class='demo'>
                             <ol>
                                 <li><span>&#x279F;</span>
-                                    Go to this <a href='https://f8fe62e626a0.ngrok.io/setCookieLax' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=Lax</b> cookie
+                                    Go to this <a href='https://server-nocors.herokuapp.com/setCookieLax' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=Lax</b> cookie
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <a href='https://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from the same website and see that cookie <b>IS sent</b> in the header
+                                    Follow this <a href='https://server-nocors.herokuapp.com/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from the same website and see that cookie <b>IS sent</b> in the header
                                 </li>
                             </ol>
                         </article>
@@ -388,7 +388,7 @@
                         <article class='demo'>
                             <ol>
                                 <li><span>&#x279F;</span>
-                                    Go to this <a href='https://f8fe62e626a0.ngrok.io/setCookieNone' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=None</b> cookie
+                                    Go to this <a href='https://server-nocors.herokuapp.com/setCookieNone' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set <b>SameSite=None</b> cookie
                                 </li>
                                 <li><span>&#x279F;</span>
                                     Open up the <b>Network tab</b>, refresh this page, and view the Network request for the <b>dog.jpeg</b> image resource. You will see the cookie <b>IS sent</b> in the headers for this request.
@@ -455,13 +455,13 @@
                         <article class='demo'>
                             <ol>
                                 <li><span>&#x279F;</span>
-                                    Go to this <b>HTTPS</b> <a href='https://f8fe62e626a0.ngrok.io/setCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set a <b>Secure</b> cookie
+                                    Go to this <b>HTTPS</b> <a href='https://server-nocors.herokuapp.com/setCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set a <b>Secure</b> cookie
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <b>HTTPS</b> <a href='https://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie <b>IS sent</b> in the header
+                                    Follow this <b>HTTPS</b> <a href='https://server-nocors.herokuapp.com'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie <b>IS sent</b> in the header
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <b>HTTP</b> <a href='http://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
+                                    Follow this <b>HTTP</b> <a href='http://server-nocors.herokuapp.com/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
                                 </li>
                             </ol>
                         </article>
@@ -471,13 +471,13 @@
                         <article class='demo'>
                             <ol>
                                 <li><span>&#x279F;</span>
-                                    Go to this <b>HTTP</b> <a href='http://f8fe62e626a0.ngrok.io/setCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to try setting a <b>Secure</b> cookie <b>(does not work)</b>
+                                    Go to this <b>HTTP</b> <a href='http://server-nocors.herokuapp.com/setCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to try setting a <b>Secure</b> cookie <b>(does not work)</b>
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <b>HTTP</b> <a href='http://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
+                                    Follow this <b>HTTP</b> <a href='http://server-nocors.herokuapp.com/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <b>HTTPS</b> <a href='https://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
+                                    Follow this <b>HTTPS</b> <a href='https://server-nocors.herokuapp.com/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
                                 </li>
                             </ol>
                         </article>
@@ -504,13 +504,13 @@
                         <article class='demo'>
                             <ol>
                                 <li><span>&#x279F;</span>
-                                    Go to this <a href='https://f8fe62e626a0.ngrok.io/setCookieOnly' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set a <b>HttpOnly</b> cookie
+                                    Go to this <a href='https://server-nocors.herokuapp.com/setCookieOnly' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set a <b>HttpOnly</b> cookie
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <a href='http://f8fe62e626a0.ngrok.io/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> to verify the <b>HttpOnly</b> cookie was set
+                                    Follow this <a href='http://server-nocors.herokuapp.com/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> to verify the <b>HttpOnly</b> cookie was set
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <a href='https://f8fe62e626a0.ngrok.io/cookiesjs.html'  target='_blank' rel='noopener noreferrer'><b>link</b></a> to view the cookies that are available through <b>JavaScript</b>. Note the <b>HttpOnly</b> cookie is <b>NOT present</b>
+                                    Follow this <a href='https://server-nocors.herokuapp.com/cookiesjs.html'  target='_blank' rel='noopener noreferrer'><b>link</b></a> to view the cookies that are available through <b>JavaScript</b>. Note the <b>HttpOnly</b> cookie is <b>NOT present</b>
                                 </li>
                             </ol>
                         </article>
