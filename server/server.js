@@ -96,6 +96,11 @@ app.get('/setCookieSecure', async (req, res, next) => {
     res.send(`Set Cookie: Max-Age=${maxAge}, Secure=true`)
 })
 
+app.get('/clearCookieSecure', async (req, res, next) => {
+    res.clearCookie('cookie-secure')
+    res.send(`Clear Cookie: Secure=true`)
+})
+
 app.get('/setCookieOnly', async (req, res, next) => {
     res.cookie('cookie-only', 'http-only', { maxAge, httpOnly: true })
     res.send(`Set Cookie: Max-Age=${maxAge}, HttpOnly=true`)

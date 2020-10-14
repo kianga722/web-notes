@@ -458,7 +458,7 @@
                                     Go to this <b>HTTPS</b> <a href='https://server-nocors.herokuapp.com/setCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to set a <b>Secure</b> cookie
                                 </li>
                                 <li><span>&#x279F;</span>
-                                    Follow this <b>HTTPS</b> <a href='https://server-nocors.herokuapp.com'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie <b>IS sent</b> in the header
+                                    Follow this <b>HTTPS</b> <a href='https://server-nocors.herokuapp.com/getHeaders' target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie <b>IS sent</b> in the header
                                 </li>
                                 <li><span>&#x279F;</span>
                                     Follow this <b>HTTP</b> <a href='http://server-nocors.herokuapp.com/getHeaders'  target='_blank' rel='noopener noreferrer'><b>link</b></a> from this website and see that cookie is <b>NOT sent</b> in the header
@@ -470,6 +470,9 @@
                         <h4 class='example'>Cookie with Secure attribute CANNOT be SET by HTTP origin</h4>
                         <article class='demo'>
                             <ol>
+                                <li><span>&#x279F;</span>
+                                    Go to this <a href='https://server-nocors.herokuapp.com/clearCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to <b>clear</b> previously set <b>Secure</b> cookie 
+                                </li>
                                 <li><span>&#x279F;</span>
                                     Go to this <b>HTTP</b> <a href='http://server-nocors.herokuapp.com/setCookieSecure' target='_blank' rel='noopener noreferrer'><b>site</b></a> to try setting a <b>Secure</b> cookie <b>(does not work)</b>
                                 </li>
