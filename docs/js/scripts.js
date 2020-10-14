@@ -1,7 +1,7 @@
 (() => {
     const otherSiteNoCORS = 'https://server-nocors.herokuapp.com';
-    const otherSiteCORS = 'https://server-nocors.herokuapp.com';
-    const otherSiteRestrict = 'https://server-nocors.herokuapp.com';
+    const otherSiteCORS = 'https://server-cors-all.herokuapp.com';
+    const otherSiteRestrict = 'https://server-cors-restrict.herokuapp.com';
 
     const fetchSameOrigin = document.querySelector('#fetch-same-origin');
     const fetchDifferentOrigin = document.querySelector('#fetch-different-origin');
