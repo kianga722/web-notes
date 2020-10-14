@@ -52,7 +52,7 @@
     }
 
     fetchSameOrigin.addEventListener('click', () => {
-        handleFetch(`${window.location.href}data/data.json`, dataWrapperSame)
+        handleFetch(`./data/data.json`, dataWrapperSame)
     })
     fetchDifferentOrigin.addEventListener('click', () => {
         handleFetch(`${otherSiteNoCORS}/data.json`, dataWrapperDifferent)
