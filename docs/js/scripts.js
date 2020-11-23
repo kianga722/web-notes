@@ -69,10 +69,10 @@
         handleFetch(`${otherSite}/data.json`, dataWrapperPreflight, 'application/json')
     })
     fetchJSON.addEventListener('click', () => {
-        handleFetch(`${otherSite}/getJSON`, dataWrapperJSON)
+        handleFetch(`${otherSite}/data.json`, dataWrapperJSON)
     })
     JSONPnosupport.addEventListener('click', () => {
-        handleJSONP(`${otherSite}/getJSON`, dataWrapperJSONPnosupport)
+        handleJSONP(`${otherSite}/data.json`, dataWrapperJSONPnosupport)
     })
     JSONPsupport.addEventListener('click', () => {
         handleJSONP(`${otherSite}/getJSONP`, dataWrapperJSONPsupport)
