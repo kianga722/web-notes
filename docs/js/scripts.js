@@ -1,7 +1,9 @@
 (() => {
-    const otherSiteNoCORS = 'https://server-nocors.herokuapp.com';
-    const otherSiteCORS = 'https://server-cors-all.herokuapp.com';
-    const otherSiteRestrict = 'https://server-cors-restrict.herokuapp.com';
+    const otherSite = 'https://othersite.netlify.app';
+
+    // const otherSiteNoCORS = 'https://server-nocors.herokuapp.com';
+    // const otherSiteCORS = 'https://server-cors-all.herokuapp.com';
+    // const otherSiteRestrict = 'https://server-cors-restrict.herokuapp.com';
 
     const fetchSameOrigin = document.querySelector('#fetch-same-origin');
     const fetchDifferentOrigin = document.querySelector('#fetch-different-origin');
@@ -55,24 +57,24 @@
         handleFetch(`./data/data.json`, dataWrapperSame)
     })
     fetchDifferentOrigin.addEventListener('click', () => {
-        handleFetch(`${otherSiteNoCORS}/data.json`, dataWrapperDifferent)
+        handleFetch(`${otherSite}/data.json`, dataWrapperDifferent)
     })
     fetchCORS.addEventListener('click', () => {
-        handleFetch(`${otherSiteCORS}/data.json`, dataWrapperCORS)
+        handleFetch(`${otherSite}/data.json`, dataWrapperCORS)
     })
     fetchRestrict.addEventListener('click', () => {
-        handleFetch(`${otherSiteRestrict}/data.json`, dataWrapperRestrict)
+        handleFetch(`${otherSite}/data.json`, dataWrapperRestrict)
     })
     fetchPreflight.addEventListener('click', () => {
-        handleFetch(`${otherSiteCORS}/data.json`, dataWrapperPreflight, 'application/json')
+        handleFetch(`${otherSite}/data.json`, dataWrapperPreflight, 'application/json')
     })
     fetchJSON.addEventListener('click', () => {
-        handleFetch(`${otherSiteNoCORS}/getJSON`, dataWrapperJSON)
+        handleFetch(`${otherSite}/getJSON`, dataWrapperJSON)
     })
     JSONPnosupport.addEventListener('click', () => {
-        handleJSONP(`${otherSiteNoCORS}/getJSON`, dataWrapperJSONPnosupport)
+        handleJSONP(`${otherSite}/getJSON`, dataWrapperJSONPnosupport)
     })
     JSONPsupport.addEventListener('click', () => {
-        handleJSONP(`${otherSiteNoCORS}/getJSONP`, dataWrapperJSONPsupport)
+        handleJSONP(`${otherSite}/getJSONP`, dataWrapperJSONPsupport)
     })
 })()
