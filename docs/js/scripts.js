@@ -63,7 +63,7 @@
         handleFetch(`${otherSite}/getJSONCORS`, dataWrapperCORS)
     })
     fetchRestrict.addEventListener('click', () => {
-        handleFetch(`${otherSite}/getJSON`, dataWrapperRestrict)
+        handleFetch(`${otherSite}/getJSONRestrict`, dataWrapperRestrict)
     })
     fetchPreflight.addEventListener('click', () => {
         handleFetch(`${otherSite}/getJSON`, dataWrapperPreflight, 'application/json')
