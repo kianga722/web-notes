@@ -44,6 +44,7 @@
             url: url,
             dataType: 'jsonp',
             jsonpCallback: 'processJSONPResponse',
+            contentType: "application/json; charset=utf-8",
             error: (err) => {
                 console.log('error')
                 console.log(err)
