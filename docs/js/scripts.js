@@ -73,9 +73,9 @@
         handleFetch(`${otherSite}/getJSON`, dataWrapperJSON)
     })
     JSONPnosupport.addEventListener('click', () => {
-        handleJSONP(`${otherSite}/getJSON`, dataWrapperJSONPnosupport)
+        handleJSONP(`https://othersite.netlify.app/data.json`, dataWrapperJSONPnosupport)
     })
     JSONPsupport.addEventListener('click', () => {
-        handleJSONP(`${otherSite}/getJSONP`, dataWrapperJSONPsupport)
+        handleJSONP(`https://othersite.netlify.app/data1.json`, dataWrapperJSONPsupport)
     })
 })()
