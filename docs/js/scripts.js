@@ -1,5 +1,5 @@
 (() => {
-    const otherSite = 'https://othersite.netlify.app';
+    const otherSite = 'https://othersite.netlify.app/.netlify/functions';
 
     // const otherSiteNoCORS = 'https://server-nocors.herokuapp.com';
     // const otherSiteCORS = 'https://server-cors-all.herokuapp.com';
@@ -57,22 +57,22 @@
         handleFetch(`./data/data.json`, dataWrapperSame)
     })
     fetchDifferentOrigin.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperDifferent)
+        handleFetch(`${otherSite}/getJSON`, dataWrapperDifferent)
     })
     fetchCORS.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperCORS)
+        handleFetch(`${otherSite}/getJSON`, dataWrapperCORS)
     })
     fetchRestrict.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperRestrict)
+        handleFetch(`${otherSite}/getJSON`, dataWrapperRestrict)
     })
     fetchPreflight.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperPreflight, 'application/json')
+        handleFetch(`${otherSite}/getJSON`, dataWrapperPreflight, 'application/json')
     })
     fetchJSON.addEventListener('click', () => {
-        handleFetch(`${otherSite}/data.json`, dataWrapperJSON)
+        handleFetch(`${otherSite}/getJSON`, dataWrapperJSON)
     })
     JSONPnosupport.addEventListener('click', () => {
-        handleJSONP(`${otherSite}/data.json`, dataWrapperJSONPnosupport)
+        handleJSONP(`${otherSite}/getJSON`, dataWrapperJSONPnosupport)
     })
     JSONPsupport.addEventListener('click', () => {
         handleJSONP(`${otherSite}/getJSONP`, dataWrapperJSONPsupport)
